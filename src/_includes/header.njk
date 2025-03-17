@@ -1,0 +1,21 @@
+<header class="header">
+    <div class="wrapper">
+        <div class="header__inner header-footer">
+            <div class="header-logo-area">
+                {% if (page.url === '/') %}
+                <h1 class="header-logo">
+                    <a href="/">
+                        {% icon "logo", "logo-svg header-logo_svg" %}
+                        {% icon "logo-stacked", "logo-stacked-svg header-logo_svg" %}
+                        <span class="sr-only">Integral Robotics</span>
+                    </a>
+                </h1>
+                {% else %}
+                <p class="header-logo"><a href="/">{% icon "logo", "logo-svg" %}<span class="sr-only">Integral Robotics</span></a></p>
+                {% endif %}
+                <p class="header-tagline">Liberating human expertise</p>
+            </div>
+        </div>
+    </div>
+</header>
+</header>

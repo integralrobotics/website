@@ -1,0 +1,428 @@
+@import "modern-normalize/modern-normalize.css";
+
+/* START: my preferred resets on top of modern-normalise */
+
+html {
+    line-height: 1.5;
+    font-size: 100%;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    max-inline-size: 100%;
+    block-size: auto;
+    display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+/* END: my preferred resets on top of modern-normalise */
+
+:root {
+    --base-font-size: 16px;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --black-squeeze: #DCEBF2;
+    --chathams-blue: #0F407D;
+    --ship-cove: #7595B7;
+    --wild-sand: #F6F6F6;
+    --color-01: #ED1C24;
+    --color-02: #0088CB;
+    --color-03: #FFCB05;
+    --color-04: #727272;
+    --color-05: #B0B0B0;
+    --color-06: #D6E8F1;
+    --color-07: #D9D9D9;
+    --color-08: #5C5168;
+    --color-09: #281A39;
+    --color-10: #E5F0FE;
+    --color-11: #003A96;
+    --color-12: #001D4B;
+    --color-13: #F9C5B4;
+    --color-14: #F3A78F;
+    --color-15: #9E3B1B;
+    --color-16: #4F1D0E;
+    --color-17: #D2ACF7;
+    --color-18: #BA83F0;
+    --color-19: #8015E8;
+    --color-20: #550E9B;
+    --color-21: #2B074D;
+    --color-22: #B1D3BB;
+    --color-23: #7FA88B;
+    --color-24: #407C51;
+    --color-25: #2B5336;
+    --color-26: #15291B;
+    --color-27: #C3BFC7;
+    --color-28: #8F8898;
+    --color-29: #627D98;
+    --color-30: #447494;     
+    --base-font-family: Helvetica, Arial, sans-serif;
+    --main-heading-font-family: 'Avenir Heavy', sans-serif;
+    --light-heading-font-family: 'Avenir Light', sans-serif;
+    --focus-color: var(--color-pictonBlue);
+    --focus-color-dark: var(--color-black);
+    --resume-arrow-bg: var(--color-pictonBlue);
+}
+
+@custom-media --xs-viewport (min-width: 0em);
+/* 576px */
+@custom-media --sm-viewport (min-width: 36em);
+/* 768px */
+@custom-media --md-viewport (min-width: 48em);
+/* 992px */
+@custom-media --lg-viewport (min-width: 60em);
+/* 1200px */
+@custom-media --xl-viewport (min-width: 75em);
+
+/* START: General site styling */
+
+
+body {
+    font-family: var(--base-font-family);
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--main-heading-font-family);
+    font-weight: 500;
+}
+
+.svg-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    vertical-align: middle;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+    clip: auto !important;
+    clip-path: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    width: auto !important;
+    white-space: normal !important;
+}
+
+/* https://ryanmulligan.dev/blog/layout-breakouts/ */
+.wrapper {
+    --gap: 1.5rem;
+    --full: minmax(var(--gap), 1fr);
+    --content: min(61rem, 100% - var(--gap) * 2);
+    --header-footer: minmax(0, 5rem);
+    --popout: minmax(0, 4rem);
+
+    display: grid;
+    grid-template-columns:
+        [full-start] var(--full) 
+        [header-footer-start] var(--header-footer) 
+        [popout-start] var(--popout) 
+        [content-start] var(--content) [content-end] 
+        var(--popout) [popout-end] 
+        var(--header-footer) [header-footer-end] 
+        var(--full) [full-end];
+    padding-block: 2rem;
+
+    @media (--sm-viewport) {
+        --gap: 2.5rem;
+    }
+
+    &.homepage {
+        padding-block: clamp(1rem, calc(1rem + 2vw), 5rem);
+    }
+
+    &.alt-bg {
+        background-color: #F0F1F2;
+    }
+
+    &.image-bg{
+        position: relative;
+
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), 
+            url('../assets/img/call-to-action-bg.avif');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+    }
+}
+
+.wrapper>* {
+    grid-column: content;
+}
+
+.full-width {
+    grid-column: full;
+}
+
+.popout {
+    grid-column: popout;
+}
+
+.header-footer {
+    grid-column: header-footer;
+}
+
+.header{
+    background-color: var(--chathams-blue);
+}
+
+.header-logo{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-self: center;
+    width: 11.5rem;
+
+    @media (--sm-viewport) {
+        margin: 0;
+        width: 200px;
+        margin-right: 2rem;
+    }
+
+    @media (--md-viewport) {
+        width: 21.8rem;
+    }
+
+    a{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.header-logo_svg {
+    display: inline-block;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    vertical-align: middle;
+    width: 100%;
+    height: auto;
+}
+
+.logo-svg {
+    display: none;
+    width: 363px;
+    height: 47px;
+
+    @media (--md-viewport) {
+        display: block;
+    }
+}
+
+.logo-stacked-svg{
+    width: 11.5rem;
+    height: 4.8rem;
+    margin-block-end: 0.5rem;
+
+    @media (--sm-viewport) {
+        margin-block-end: 0;
+    }
+
+    @media (--md-viewport) {
+        display: none;
+    }
+}
+
+.header-tagline{
+    color: var(--color-white);
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.header-logo-area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    @media (--sm-viewport) {
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+.field{
+    padding-block-end: 1rem;
+
+    &.hp{
+        display: none;
+    }
+}
+
+.field__label{
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-block-end: 0.5rem;
+}
+
+.field__input{
+    width: 100%;
+    border: 1px solid #0F172A;
+    background: #FFF;
+    padding: 0.625rem;
+    margin-block-end: 0.25rem;
+
+    &:focus-visible{
+        outline: solid 2px #000;
+        outline-offset: 2px;
+    }
+
+}
+
+.field__error{
+    display: flex;
+    align-items: center;
+}
+
+.field__error-icon{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.field__error-message{
+    padding-inline-start: 0.5rem;
+}
+
+.button-primary{
+    min-width: 7.5rem;
+    padding: 0.625rem 1rem;
+    border-radius: 0.25rem;
+    background: var(--chathams-blue);
+    color: var(--color-white);
+    text-align: center;
+    border: none;
+
+    &:hover{
+        background: var(--color-12);
+    }
+
+    &:focus-visible{
+        outline: solid 2px #000;
+        outline-offset: 2px;
+    }
+
+    &:active{
+        background-color: var(--color-02);
+    }
+}
+
+.social-links {
+    display: flex;
+    margin: 1.5rem 0 0 auto;
+    padding: 0;
+    list-style: none;
+
+    @media (--md-viewport) {
+        margin-top: 0;
+    }
+
+
+    li {
+        margin-left: 2.5rem;
+
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+
+    a {
+        background: var(--chathams-blue);
+        color: var(--chathams-blue);
+        &:visited{}
+        &:hover{}
+    }
+}
+
+.social-links__icons{
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+}
+
+.footer{
+    background-color: var(--color-06);
+}
+
+.form-socials{
+    display: flex;
+    gap: 2rem;
+    justify-content: start;
+    align-items: stretch;
+    flex-direction: column;
+
+    @media (--md-viewport) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.social-hook, .footer-form{
+
+    @media (--md-viewport) {
+        width: 50%;
+        height: auto;
+    }
+}
+
+.social-hook h2 {
+    margin-block-start: 0;
+}
+
+.copyright{
+    color: var(--color-12);
+    margin-block-start: 4rem;
+    padding-block: 1rem;
+    border-top: var(--color-26) 1px solid;
+}

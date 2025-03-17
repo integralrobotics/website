@@ -1,0 +1,50 @@
+<footer class="footer">
+    <div class="wrapper">
+        <div class="footer__inner header-footer">
+            <div class="form-socials">
+                <div class="social-hook">
+                    <h2>Let's Chat</h2>
+                    <p>If you’ve identified areas in your organisation where human expertise is underutilised because of time-consuming tasks, we encourage you to contact us. We can assist in freeing your skilled professionals from tedious responsibilities, allowing them to concentrate on their core strengths</p>
+                    <ul class="social-links">
+                        <li>
+                            <a href="#">
+                                {% icon "linkedin", "social-links__icons" %}
+                                <span class="sr-only">Integral Robotics LinkedIn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                {% icon "facebook", "social-links__icons" %}
+                                <span class="sr-only">Integral Robotics Facebook</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                {% icon "instagram", "social-links__icons" %}
+                                <span class="sr-only">Integral Robotics Twitter</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-form">
+                    <form name="">
+                        <div class="field">
+                            <label for="full-name" class="field__label">Full name</label>
+                            <input type="text" name="full-name" id="full-name" aria-describedby="full-name-error-message" aria-required="true" aria-invalid="false" autocomplete="name" class="field__input" data-error-message="Enter a your full name">
+                        </div>
+                        <div class="field">
+                            <label for="email-address" class="field__label">Email address</label>
+                            <input type="text" name="email-address" id="email-address" aria-describedby="email-address-error-message" type="email" autocomplete="email"  aria-required="true" aria-invalid="false" class="field__input"  data-error-message="Enter a email address">
+                        </div>
+                        <div class="field">
+                            <label for="message" class="field__label">Message</label>
+                            <textarea name="message" id="message" aria-describedby="message-error-message" aria-required="true" aria-invalid="false" class="field__input"  data-error-message="Enter a message"></textarea>
+                        </div>
+                        <button type="submit" class="button-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+            <p class="copyright">&copy; {% year %} Integral Robotics. All rights reserved</p>
+        </div>
+    </div>
+</footer>
