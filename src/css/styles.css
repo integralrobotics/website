@@ -426,3 +426,19 @@ h6 {
     padding-block: 1rem;
     border-top: var(--color-26) 1px solid;
 }
+
+.big-block-font {
+    font-family: 'Anton', sans-serif;
+    font-size: 46px;
+    color: var(--chathams-blue);
+}
+
+.with-vertical-line::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 0px;
+    width: 4px;
+    background-color: var(--chathams-blue);
+}
