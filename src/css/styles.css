@@ -442,3 +442,10 @@ h6 {
     width: 4px;
     background-color: var(--chathams-blue);
 }
+
+.column-article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
