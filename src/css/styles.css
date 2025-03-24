@@ -451,6 +451,5 @@ h6 {
 }
 
 .padded-article {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 100px;
 }
