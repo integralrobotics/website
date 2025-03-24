@@ -99,6 +99,10 @@ body {
     padding: 0;
 }
 
+p {
+    font-size: 1.25em;
+}
+
 h1,
 h2,
 h3,
@@ -429,7 +433,7 @@ h6 {
 
 .big-block-font {
     font-family: 'Anton', sans-serif;
-    font-size: 46px;
+    font-size: 36px;
     color: var(--chathams-blue);
 }
 
