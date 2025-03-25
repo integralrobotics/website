@@ -436,3 +436,7 @@ h6 {
     font-size: 1.25em;
     color: var(--chathams-blue);
 }
+
+.hidden-bot-field {
+    display: none;
+}
