@@ -9,9 +9,9 @@ We build systems that remove the grind from repetitive tasks.
 - [x] Generate full set of favicons
 - [x] Set up eleventy
 - [x] Set up basic template
-- [ ] Contact form
+- [x] Contact form
 - [ ] Styles
-- [ ] Netlify set up and publish 
+- [x] Netlify set up and publish 
 - [x] Get Avenir font (avenir-lt-w01_85-heavy, avenir-lt-w01_35-light, )
 - [x] Geet Anton font (normal 400)
 - [ ] Set up local font fallback for speed
